@@ -1,7 +1,7 @@
 Feature: Login into losestudiantes
     As an user I want to authenticate myself within losestudiantes website in order to rate teachers
 
-Scenario Outline: Login failed with wrong inputs
+Scenario Outline: Login failed with wrong inputs and Login sucess
 
   Given I go to losestudiantes home screen
     When I open the login screen
