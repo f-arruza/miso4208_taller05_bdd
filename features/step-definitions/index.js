@@ -46,4 +46,75 @@ defineSupportCode(({Given, When, Then}) => {
       expect(alertText).to.include(error);
     }
   });
+
+  // Register
+  When('I open the register screen', () => {
+    if(browser.isVisible('.modal-body')) {
+      browser.waitForVisible('.botonIngresar', 5000);
+    }
+    browser.waitForVisible('.botonIngresar', 5000);
+    browser.element('.botonIngresar').click();
+  });
+
+  When(/^I fill SignUp with (.*), (.*), (.*), (.*) and (.*)$/ , (name, lastname, email, password, accept) => {
+    browser.waitForVisible('.cajaSignUp', 5000);
+
+    var cajaSignUp = browser.element('.cajaSignUp');
+    var nombreInput = cajaSignUp.element('input[name="nombre"]');
+    nombreInput.click();
+    nombreInput.keys(name);
+
+    var apellidoInput = cajaSignUp.element('input[name="apellido"]');
+    apellidoInput.click();
+    apellidoInput.keys(lastname);
+
+    var correoInput = cajaSignUp.element('input[name="correo"]');
+    correoInput.click();
+    correoInput.keys(email);
+
+    var passwordInput = cajaSignUp.element('input[name="password"]');
+    passwordInput.click();
+    passwordInput.keys(password);
+
+    cajaSignUp.element('[type="checkbox"]').click();
+    cajaSignUp.element('[name="idPrograma"]').selectByValue('16')
+    if(accept == 'true') {
+      cajaSignUp.element('input[name="acepta"]').click();
+    }
+  });
+
+  When('I try to register', () => {
+    browser.click('button=Registrarse');
+  });
+
+  Then(/^I expect (.*)$/ , (behavior) => {
+    // Nombre y apellidos
+    if(behavior.startsWith('E:')) {
+      expect(browser.isVisible('.glyphicon-remove')).equal(true);
+    }
+    // Errores en ingreso de datos
+    if(behavior.startsWith('A:')) {
+      var msg = behavior.replace('A:', '');
+      var alertText = browser.element('.alert-danger').getText();
+      expect(alertText).to.include(msg);
+    }
+    // Usuario Repetido
+    if(behavior.startsWith('R:')) {
+      browser.waitForVisible('.sweet-alert', 5000);
+      var alertText = browser.element('.sweet-alert').element('h2').getText();
+      expect(alertText).to.include('Ocurrió un error activando tu cuenta');
+    }
+    // Usuario Repetido
+    if(behavior.startsWith('RF:')) {
+      browser.waitForVisible('.sweet-alert', 5000);
+      var alertText = browser.element('.sweet-alert').element('h2').getText();
+      expect(alertText).to.include('Ocurrió un error activando tu cuenta');
+    }
+    // Usuario Exitoso
+    if(behavior.startsWith('RE:')) {
+      browser.waitForVisible('.sweet-alert', 5000);
+      var alertText = browser.element('.sweet-alert').element('h2').getText();
+      expect(alertText).to.include('Registro exitoso');
+    }
+  });
 });
