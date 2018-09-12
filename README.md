@@ -1,2 +1,5 @@
-# miso4208_taller05_bdd
-Taller 5: BDD utilizando Cucumber y Calabash
+# TALLER 5: BDD utilizando Cucumber y Calabash.
+
+## Cucumber
+### Login exitoso
+![alt text](images/cucumber01.png)
