@@ -12,7 +12,7 @@ Feature: Trayectorias y Rutas
     And I wait for 5 seconds
 
   Scenario: Yo como usuario quiero consultar la trayectoria de la ruta de servicio ESPECIAL "6-18" y verla en un mapa.
-    Then I press "Routes"
+    Given I press "Routes"
     Then I wait for 1 seconds
     Then I press "COMPLEMENTARIO"
     Then I wait for 1 seconds
@@ -25,11 +25,9 @@ Feature: Trayectorias y Rutas
     Then I press view with id "txtBusDescription"
     Then I wait for 2 seconds
     Then I press view with id "action_map"
-    And I wait for 15 seconds
+    And I wait for 5 seconds
 
   Scenario: Yo como usuario quiero buscar la ruta "C37" del servicio URBANO y marcarla como favorita para que me pida login social.
-    #button to remove the splash screen
-    Given I press "Stations"
     Given I press "Routes"
     Then I wait for 1 seconds
     Then I press "URBANO"
@@ -39,4 +37,4 @@ Feature: Trayectorias y Rutas
     Then I press the enter button
     Then I wait for 2 seconds
     Then I press view with id "imgFavorite"
-    And I wait for 2 seconds
+    And I wait for 5 seconds
