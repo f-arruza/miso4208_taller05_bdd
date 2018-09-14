@@ -31,11 +31,14 @@ Comando para ejecutar las pruebas:
 * Yo como usuario quiero consultar la trayectoria de la ruta de servicio ESPECIAL "6-18" y verla en un mapa.
 * Yo como usuario quiero buscar la ruta "C37" del servicio URBANO y marcarla como favorita para que me pida login social.
 
-Ejemplo:
+Ejemplo: escenario 2.
 ![alt text](images/feature1_esc2.gif)
 
 ### Feature: Planear viaje en Transmi o SITP
 ##### Escenarios:
 * Yo como usuario quiero buscar la ruta óptima de Transmi entre la estación Av. Rojas y Pepe Sierra, y verla en un mapa.
-* Yo como usuario quiero buscar las rutas óptima en SITP entre mi ubicación y el Centro Comercial Av Chile, e iniciar viaje.
+* Yo como usuario quiero buscar las rutas óptima en SITP entre la Torre Colpatria y el Centro Comercial Av Chile, e iniciar viaje.
 * Yo como usuario quiero consultar el listado de estaciones de la troncal "Américas".
+
+Ejemplo: escenario 1.
+![alt text](images/feature2_esc1.gif)
